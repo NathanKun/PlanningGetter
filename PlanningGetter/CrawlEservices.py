@@ -41,7 +41,7 @@ def connectEsv(writeFile=False, debug=False, usr='', pwd='', nbWeeks=8):
     desired_capabilities['phantomjs.page.settings.userAgent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36'
     
     # start driver
-    driver = webdriver.PhantomJS(desired_capabilities=desired_capabilities)
+    driver = webdriver.PhantomJS(desired_capabilities=desired_capabilities, service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
     #driver = webdriver.Firefox()
     driver.set_window_size(1920, 1080)  # default window size of phantomjs is too small that css may display diffrently from other browser
     logger.debug("Driver started")
